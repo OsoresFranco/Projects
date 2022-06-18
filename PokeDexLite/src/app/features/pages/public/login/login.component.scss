@@ -1,14 +1,29 @@
-.main-title-container{
+.main-title-container {
   margin: 25px;
 }
 
-.main-logo{
+.main-logo {
   height: 65px;
   width: auto;
 }
 
-.main-title{
+.main-title {
   color: #ffffff;
   font-size: 16px;
   font-weight: 200;
+}
+
+.main-hero {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 50px;
+}
+
+.hero-image {
+  width: 350px;
+  height: auto;
 }
