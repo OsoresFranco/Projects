@@ -12,7 +12,7 @@ export class LoginService {
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'http://localhost:4200',
     'Access-Control-Allow-Credentials': 'true',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
@@ -21,6 +21,6 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(user: any): Observable<any> {
-    return this.http.post<any>(this.url, user, {headers:this.headers});
+    return this.http.post<any>("/pokedex-api/login", user, {headers:this.headers});
   }
 }
