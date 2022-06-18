@@ -1,16 +1,13 @@
 .main-title-container {
-  margin: 25px;
+  margin: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-logo {
   height: 65px;
   width: auto;
-}
-
-.main-title {
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 200;
 }
 
 .main-hero {
@@ -26,4 +23,44 @@
 .hero-image {
   width: 350px;
   height: auto;
+}
+
+.login-action {
+  background: #f6ba15;
+
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.main-actions {
+  width: 100%;
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-action {
+  width: 250px;
+  height: 50px;
+}
+
+.register-action {
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.register-action > p {
+  margin-right: 3px;
+}
+
+a:visited,
+a:active,
+a:link {
+  text-decoration: none;
+  color: #f6ba15;
 }
