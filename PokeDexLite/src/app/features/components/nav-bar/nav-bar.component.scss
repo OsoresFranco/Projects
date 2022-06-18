@@ -1,0 +1,21 @@
+.nav-bar-container{
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar-logo{
+  height: 50px;
+  width: auto;
+  margin: 10px;
+}
+
+.nav-bar-menu{
+  margin: 10px;
+}
+
+.menu-button{
+  color: #ffffff;
+}

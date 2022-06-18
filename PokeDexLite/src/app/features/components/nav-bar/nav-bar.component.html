@@ -1,3 +1,20 @@
-<div class="navBar">
-
+<div class="nav-bar-container">
+  <img
+    class="nav-bar-logo"
+    src="../../../../assets/pokedexLogo.png"
+    alt="Pokedex Lite Logo"
+  />
+  <button class="nav-bar-menu" mat-button [matMenuTriggerFor]="menu">
+    <mat-icon class="menu-button" aria-hidden="false" aria-label="Menu">menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon class="list-button" aria-hidden="false" aria-label="Menu">camera</mat-icon>
+      Pokemons
+    </button>
+    <button mat-menu-item>
+      <mat-icon class="logout-button" aria-hidden="false" aria-label="Menu">logout-button</mat-icon>
+      Logout
+    </button>
+  </mat-menu>
 </div>
