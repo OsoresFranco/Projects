@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, resolveForwardRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResolveEnd } from '@angular/router';
+import { LoginService } from 'src/app/core/services/login.service';
 
 @Component({
   selector: 'app-login-form',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginFormComponent implements OnInit {
   loginForm:FormGroup;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, private loginService:LoginService) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -19,4 +21,9 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submit(){
+    this.loginService.login(this.loginForm.value).subscribe(response => {
+      console.log(response)
+    });
+  }
 }

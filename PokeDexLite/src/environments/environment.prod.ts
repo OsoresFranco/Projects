@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  loginEndPoint: "https://testing.certant.com/pokedex-api/login",
 };

@@ -1,19 +1,21 @@
-<form [formGroup]="loginForm" autocomplete="off">
-  <mat-form-field class="user-input" appearance="fill">
-    <mat-label>Username</mat-label>
-    <input type="text" matInput formControlName="username" />
-    <mat-error>
-      Username is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
+<div class="form-container">
+  <form class="loginForm" [formGroup]="loginForm" autocomplete="off">
+    <mat-form-field class="user-input" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input type="text" matInput formControlName="username" />
+      <mat-error>
+        Username is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field class="user-input" appearance="fill">
-    <mat-label>Password</mat-label>
-    <input type="password" matInput formControlName="password" />
-    <mat-error>
-      Password is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field class="user-input" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password" />
+      <mat-error>
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
 
-  <button mat-raised-button [disabled]="!loginForm.valid">Submit</button>
-</form>
+    <button mat-raised-button [disabled]="!loginForm.valid" (click)="submit()">Submit</button>
+  </form>
+</div>
