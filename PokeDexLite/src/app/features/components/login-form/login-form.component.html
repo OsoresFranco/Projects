@@ -1,4 +1,10 @@
 <div class="form-container">
+  <div class="form-title-container">
+    <h2>Welcome</h2>
+  </div>
+  <div class="form-image-container">
+    <img class="login-form-image" src="../../../../assets/pikachusalutesyou.png" alt="Pikachu says Hi">
+  </div>
   <form class="loginForm" [formGroup]="loginForm" autocomplete="off">
     <mat-form-field class="user-input" appearance="fill">
       <mat-label>Username</mat-label>
@@ -16,6 +22,6 @@
       </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button [disabled]="!loginForm.valid" (click)="submit()">Submit</button>
+    <button class="form-button" mat-raised-button [disabled]="!loginForm.valid" (click)="submit()">Submit</button>
   </form>
 </div>

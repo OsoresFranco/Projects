@@ -10,9 +10,19 @@ export class AlertsService {
   loginSuccess() {
     Swal.fire({
       icon: 'success',
-      title: 'Welcome Back',
+      title: `Welcome Back ${localStorage.getItem("username")}` ,
       showConfirmButton: false,
       timer: 2000,
+    });
+  }
+
+  loginFail() {
+    Swal.fire({
+      icon: 'error',
+      title: `Error on Login`,
+      text: 'Check your username and password',
+      showConfirmButton: false,
+      timer: 2500,
     });
   }
 }

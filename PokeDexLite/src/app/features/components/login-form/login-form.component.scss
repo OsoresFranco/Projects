@@ -5,3 +5,33 @@
   align-items: center;
 }
 
+.form-title-container > h2{
+  color: #ffffff;
+  font-weight: 300;
+}
+
+.form-image-container{
+  margin: 10px 50px 50px 50px;
+}
+
+.login-form-image{
+  width: 150px;
+  height: auto;
+}
+
+.form-button{
+  margin: 15px;
+
+  background: #f6BA15;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: #262d4d;
+}

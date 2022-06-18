@@ -46,21 +46,26 @@ body {
 }
 
 .mat-form-field-label{
-  /*change color of label*/
+  /*Color for label*/
   color: #ffffff !important;
  }
 
 .mat-focused{
-  /*change color of label*/
-  color: green !important;
+  /*Color for label*/
+  color: #ffffff !important;
  }
 
 .mat-form-field-underline {
   /*change color of underline*/
-  background-color: green !important;
+  background-color: #ffffff !important;
 }
 
 .mat-form-field-ripple {
  /*change color of underline when focused*/
- background-color: green !important;;
+ background-color: #ffffff !important;;
+}
+
+
+.mat-bottom-sheet-container{
+  padding: 0px !important;
 }
