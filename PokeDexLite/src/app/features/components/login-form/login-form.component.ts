@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
 
   submit(){
     this.loginService.login(this.loginForm.value).subscribe(res => {
-      this.alert.success()
+      this.alert.loginSuccess()
     });
   }
 }

@@ -44,3 +44,23 @@ body {
 
   background-color: #262d4d;
 }
+
+.mat-form-field-label{
+  /*change color of label*/
+  color: #ffffff !important;
+ }
+
+.mat-focused{
+  /*change color of label*/
+  color: green !important;
+ }
+
+.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+}
+
+.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: green !important;;
+}

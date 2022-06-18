@@ -7,12 +7,12 @@ import Swal from 'sweetalert2';
 export class AlertsService {
   constructor() {}
 
-  success() {
+  loginSuccess() {
     Swal.fire({
       icon: 'success',
-      title: 'Your work has been saved',
+      title: 'Welcome Back',
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2000,
     });
   }
 }
