@@ -17,6 +17,7 @@ import { CardComponent } from './features/components/card/card.component';
 import { TypePipe } from './pipes/type.pipe';
 import { PokemonListComponent } from './features/pages/private/pokemon-list/pokemon-list.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { PokemonModalComponent } from './features/components/pokemon-modal/pokemon-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     CardComponent,
     TypePipe,
     PokemonListComponent,
-    PaginatePipe
+    PaginatePipe,
+    PokemonModalComponent
   ],
   imports: [
     BrowserModule,

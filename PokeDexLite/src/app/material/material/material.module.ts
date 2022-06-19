@@ -6,8 +6,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -18,7 +17,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatBottomSheetModule,
     MatMenuModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
   ],
   exports: [
     MatButtonModule,
@@ -26,7 +26,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatBottomSheetModule,
     MatMenuModule,
     MatIconModule,
-    MatPaginatorModule
-  ]
+    MatPaginatorModule,
+    MatDialogModule,
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

@@ -1,0 +1,61 @@
+.modal-header {
+  background-color: #262d4d;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image {
+  height: 150px;
+  width: auto;
+}
+
+.modal-title {
+  text-align: center;
+  color: #ffffff;
+  margin: 0px;
+}
+
+.modal-lvl {
+  text-align: center;
+  color: #ffffff;
+  margin: 0px auto 5px auto;
+  font-weight: 400;
+}
+
+.modal-abilities-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    margin: 0px;
+    color: #386aba;
+  }
+}
+
+.abilitie-name {
+  font-weight: bold;
+}
+
+.abilities-list {
+  text-align: center;
+  p {
+    margin: 5px;
+  }
+}
+
+.modal-evolution-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    margin: 0px;
+    color: #386aba;
+  }
+}
