@@ -11,11 +11,12 @@
   border-radius: 15px 0px 0px 15px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   width: 125px;
-  height: 150px;
+  height: 200px;
 }
 
 .card-image {
@@ -25,10 +26,10 @@
 
 .card-info-container {
   background-color: #f6ba15;
-  border-radius: 0px 15px 15px 0px;
+  border-radius: 0px 10px 10px 0px;
 
   width: 300px;
-  height: 150px;
+  height: 200px;
 }
 
 .name {
@@ -36,14 +37,14 @@
   font-weight: bold;
   font-size: 24px;
   text-align: center;
-  margin: 10px auto 5px auto;
+  margin: 10px auto 10px auto;
 }
 
 .level {
   font-weight: 500;
   font-size: 16px;
   text-align: center;
-  margin: 0px auto 5px auto;
+  margin: 0px auto 10px auto;
 }
 
 .type {
@@ -59,6 +60,21 @@
 
 .type-title {
   text-align: center;
-  margin: 0px auto 5px auto;
+  margin: 0px auto 10px auto;
   font-weight: 500;
+}
+
+.card-actions-container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card-action-icon{
+  color: #ffffff;
+}
+
+.card-action-button{
+  background-color: #262D4d;
+  margin-bottom: 5px;
 }

@@ -18,6 +18,7 @@ import { TypePipe } from './pipes/type.pipe';
 import { PokemonListComponent } from './features/pages/private/pokemon-list/pokemon-list.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { PokemonModalComponent } from './features/components/pokemon-modal/pokemon-modal.component';
+import { PokemonEditFormComponent } from './features/components/pokemon-edit-form/pokemon-edit-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PokemonModalComponent } from './features/components/pokemon-modal/pokem
     TypePipe,
     PokemonListComponent,
     PaginatePipe,
-    PokemonModalComponent
+    PokemonModalComponent,
+    PokemonEditFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <div class="card-container">
-  <div class="card-image-container">
+  <div class="card-image-container" (click)="openModal(pokemon)">
     <img class="card-image" src="{{ image }}" (error)="handleMissingImage()" alt="pokemon image" />
   </div>
   <div class="card-info-container">
@@ -12,6 +12,14 @@
           <img class="type-tag" src="{{ pType | type }}" (error)="handleMissingtype()" alt="type img" />
         </div>
       </div>
+    </div>
+    <div class="card-actions-container">
+      <button mat-raised-button class="card-action-button" (click)="editModal(pokemon)">
+        <mat-icon class="card-action-icon"> edit_note </mat-icon>
+      </button>
+      <button mat-raised-button class="card-action-button">
+        <mat-icon class="card-action-icon"> delete </mat-icon>
+      </button>
     </div>
   </div>
 </div>

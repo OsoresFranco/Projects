@@ -1,0 +1,45 @@
+<div class="form-container">
+  <div class="form-title-container">
+    <h2>Edit Pokemon Info</h2>
+  </div>
+  <form class="editionForm" [formGroup]="editionForm" autocomplete="off">
+    <mat-form-field class="user-input" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input class="inputField" type="text" matInput formControlName="name" />
+      <mat-error> Name is <strong>required</strong> </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="user-input" appearance="fill">
+      <mat-label>Image Url</mat-label>
+      <input class="inputField" type="text" matInput formControlName="image" />
+      <mat-error> image is <strong>required</strong> </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type/s</mat-label>
+      <mat-select formControlName="type" multiple>
+        <mat-option *ngFor="let type of types" [value]="type">{{
+          type
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="user-input" appearance="fill">
+      <mat-label>Id of it's Evolution</mat-label>
+      <input
+        class="inputField"
+        type="number"
+        matInput
+        formControlName="evolutionId"
+      />
+    </mat-form-field>
+    <button
+      class="form-button"
+      mat-raised-button
+      [disabled]="!editionForm.valid"
+      (click)="submit()"
+    >
+      Submit
+    </button>
+  </form>
+</div>
