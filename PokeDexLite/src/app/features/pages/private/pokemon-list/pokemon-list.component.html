@@ -1,0 +1,14 @@
+<div *ngFor="let pokemon of pokemonList">
+  <div *ngIf="pokemon != null; else elseBlock">
+    <app-card
+      [name]="pokemon.name"
+      [image]="pokemon.image"
+      [type]="pokemon.type"
+      [lvl]="pokemon.lvl"
+    >
+    </app-card>
+  </div>
+  <ng-template #elseBlock>
+    <p></p>
+  </ng-template>
+</div>

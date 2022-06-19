@@ -14,6 +14,8 @@ import { LoginComponent } from './features/pages/public/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginFormComponent } from './features/components/login-form/login-form.component';
 import { CardComponent } from './features/components/card/card.component';
+import { TypePipe } from './pipes/type.pipe';
+import { PokemonListComponent } from './features/pages/private/pokemon-list/pokemon-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CardComponent } from './features/components/card/card.component';
     FooterComponent,
     LoginComponent,
     LoginFormComponent,
-    CardComponent
+    CardComponent,
+    TypePipe,
+    PokemonListComponent
   ],
   imports: [
     BrowserModule,

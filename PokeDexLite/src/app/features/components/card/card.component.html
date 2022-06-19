@@ -1,14 +1,17 @@
 <div class="card-container">
   <div class="card-image-container">
-    <img class="card-image" src="{{ pokemon.image }}" alt="pokemon image" />
+    <img class="card-image" src="{{ image }}" (error)="handleMissingImage()" alt="pokemon image" />
   </div>
   <div class="card-info-container">
-    <p>{{ pokemon.name }}</p>
-    <p>Level: {{ pokemon.lvl }}</p>
-    <p>Pokemon Type: {{ pokemon.type[0] }}</p>
+    <p class="name">{{ name }}</p>
+    <p class="level">Found at Level: {{ lvl }}</p>
+    <div class="type-container">
+      <p class="type-title">Type/s</p>
+      <div class="type">
+        <div *ngFor="let pType of type">
+          <img class="type-tag" src="{{ pType | type }}" alt="type img" />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<p>Pokemon evolutionId: {{ pokemon.evolutionId }}</p>
-<p>Pokemon abilities Name: {{ pokemon.abilities[0].name }}</p>
-<p>Pokemon abilities description: {{ pokemon.abilities[0].description }}</p>
