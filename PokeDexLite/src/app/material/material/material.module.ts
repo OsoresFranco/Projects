@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -16,14 +17,16 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatBottomSheetModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
     MatInputModule,
     MatBottomSheetModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }

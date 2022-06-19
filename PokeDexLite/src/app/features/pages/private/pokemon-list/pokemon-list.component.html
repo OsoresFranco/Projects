@@ -1,14 +1,25 @@
-<div *ngFor="let pokemon of pokemonList">
-  <div *ngIf="pokemon != null; else elseBlock">
-    <app-card
-      [name]="pokemon.name"
-      [image]="pokemon.image"
-      [type]="pokemon.type"
-      [lvl]="pokemon.lvl"
-    >
-    </app-card>
+<div class="list-container">
+  <div *ngFor="let pokemon of pokemonList | paginate: page_size:page_number">
+    <div *ngIf="pokemon != null; else elseBlock">
+      <app-card
+        [name]="pokemon.name"
+        [image]="pokemon.image"
+        [type]="pokemon.type"
+        [lvl]="pokemon.lvl"
+      >
+      </app-card>
+    </div>
+    <ng-template #elseBlock>
+      <p></p>
+    </ng-template>
   </div>
-  <ng-template #elseBlock>
-    <p></p>
-  </ng-template>
+  <div class="paginator-container">
+    <mat-paginator
+      [length]="pokemonList.length"
+      [pageSize]="page_size"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="handlePage($event)"
+    >
+    </mat-paginator>
+  </div>
 </div>

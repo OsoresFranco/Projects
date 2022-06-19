@@ -69,3 +69,8 @@ body {
 .mat-bottom-sheet-container{
   padding: 0px !important;
 }
+
+.mat-paginator-container{
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
