@@ -15,6 +15,10 @@ handleMissingImage(){
   this.image = '../../../../assets/whosthat.png'
 }
 
+handleMissingtype(){
+    this.image = '../../../../assets/types/unknown.png'
+  }
+
   constructor() {}
 
   ngOnInit(): void {}

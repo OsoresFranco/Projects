@@ -9,7 +9,7 @@
       <p class="type-title">Type/s</p>
       <div class="type">
         <div *ngFor="let pType of type">
-          <img class="type-tag" src="{{ pType | type }}" alt="type img" />
+          <img class="type-tag" src="{{ pType | type }}" (error)="handleMissingtype()" alt="type img" />
         </div>
       </div>
     </div>
