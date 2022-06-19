@@ -18,8 +18,11 @@
   </div>
   <div class="modal-evolution-container">
     <h3>Evolution</h3>
-    {{ data.evolutionId }}
+    <img
+      class="modal-evolution-image"
+      src="{{ normalizedUrl }}"
+      alt="pokemon evolution"
+      (error)="handleMissingEvolution()"
+    />
   </div>
 </div>
-
-

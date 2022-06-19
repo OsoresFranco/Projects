@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Pokemon } from 'src/app/models/Pokemon';
 
@@ -8,16 +8,30 @@ import { Pokemon } from 'src/app/models/Pokemon';
   styleUrls: ['./pokemon-modal.component.scss'],
 })
 export class PokemonModalComponent implements OnInit {
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data:Pokemon) {}
+  normalizedUrl: string = '';
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Pokemon) {}
 
   handleMissingImage() {
     this.data.image = '../../../../assets/whosthat.png';
   }
 
-  getEvolution(){
-
+  getEvolution(evolutionId: number) {
+    let imageAdress =
+      'https://assets.pokemon.com/assets/cms2/img/pokedex/full/';
+    if (evolutionId < 9) {
+      this.normalizedUrl = imageAdress + '00' + evolutionId + '.png';
+    } else if (evolutionId > 9) {
+      this.normalizedUrl = imageAdress + '0' + evolutionId + '.png';
+    } else {
+      this.normalizedUrl = imageAdress + evolutionId + '.png';
+    }
   }
 
-  ngOnInit(): void {}
+  handleMissingEvolution() {
+    this.normalizedUrl = '../../../../assets/unknownEvo.png';
+  }
+
+  ngOnInit(): void {
+    this.getEvolution(this.data.evolutionId);
+  }
 }
