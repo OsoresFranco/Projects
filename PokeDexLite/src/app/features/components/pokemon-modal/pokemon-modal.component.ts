@@ -20,9 +20,9 @@ export class PokemonModalComponent implements OnInit {
       'https://assets.pokemon.com/assets/cms2/img/pokedex/full/';
     if (evolutionId < 9) {
       this.normalizedUrl = imageAdress + '00' + evolutionId + '.png';
-    } else if (evolutionId > 9) {
+    } else if (evolutionId > 9 && evolutionId < 100) {
       this.normalizedUrl = imageAdress + '0' + evolutionId + '.png';
-    } else {
+    } else if (evolutionId > 99){
       this.normalizedUrl = imageAdress + evolutionId + '.png';
     }
   }
