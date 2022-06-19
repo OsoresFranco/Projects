@@ -13,6 +13,7 @@ import { FooterComponent } from './features/components/footer/footer.component';
 import { LoginComponent } from './features/pages/public/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginFormComponent } from './features/components/login-form/login-form.component';
+import { CardComponent } from './features/components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginFormComponent } from './features/components/login-form/login-form.
     NavBarComponent,
     FooterComponent,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
