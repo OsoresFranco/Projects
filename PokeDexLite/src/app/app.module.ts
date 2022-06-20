@@ -19,6 +19,10 @@ import { PokemonListComponent } from './features/pages/private/pokemon-list/poke
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { PokemonModalComponent } from './features/components/pokemon-modal/pokemon-modal.component';
 import { PokemonEditFormComponent } from './features/components/pokemon-edit-form/pokemon-edit-form.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { pokemonsReducer } from './state/reducers/pokemon.reducers';
+import { ROOT_REDUCERS } from './state/app.state';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,9 @@ import { PokemonEditFormComponent } from './features/components/pokemon-edit-for
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    StoreDevtoolsModule.instrument({ name: 'TEST'})
   ],
   providers: [],
   bootstrap: [AppComponent]
