@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonService } from 'src/app/core/services/pokemon.service';
-import { PageEvent } from "@angular/material/paginator";
+import { Store } from '@ngrx/store';
+import { loadPokemons } from 'src/app/state/actions/pokemon.actions';
+import { Observable } from 'rxjs';
+import {
+  selectLoading,
+  selectPokemonsList,
+} from 'src/app/state/selectors/pokemon.selectors';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -8,22 +13,15 @@ import { PageEvent } from "@angular/material/paginator";
   styleUrls: ['./pokemon-list.component.scss'],
 })
 export class PokemonListComponent implements OnInit {
-  pokemonList: any = [];
+  loading$: Observable<boolean> = new Observable();
+  loaded$: Observable<any> = new Observable();
 
-  constructor(private pokemon: PokemonService) {}
+  constructor(private store: Store<any>) {}
 
   ngOnInit(): void {
-    this.pokemon.getPokemonList().subscribe((res) => {
-      this.pokemonList = res;
-      console.log(this.pokemonList);
-    });
-  }
+    this.loading$ = this.store.select(selectLoading);
+    this.loaded$ = this.store.select(selectPokemonsList);
 
-  page_size: number = 4;
-  page_number: number = 1;
-  pageSizeOptions: number[] = [4,8];
-  handlePage(e: PageEvent) {
-    this.page_size = e.pageSize;
-    this.page_number = e.pageIndex + 1;
+    this.store.dispatch(loadPokemons());
   }
 }
