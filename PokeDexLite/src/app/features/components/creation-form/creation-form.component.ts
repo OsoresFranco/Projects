@@ -1,7 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { PokemonService } from 'src/app/core/services/pokemon.service';
+import { addPokemons } from 'src/app/state/actions/pokemon.actions';
 
 @Component({
   selector: 'app-creation-form',
@@ -9,7 +11,8 @@ import { PokemonService } from 'src/app/core/services/pokemon.service';
   styleUrls: ['./creation-form.component.scss'],
 })
 export class CreationFormComponent implements OnInit {
-  creationForm: FormGroup;
+  creationForm:any;
+  abilitiesForm:any
 
   types: string[] = [
     'normal',
@@ -35,36 +38,30 @@ export class CreationFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private alert: AlertsService,
-    private postPokemon: PokemonService
+    private store: Store<any>
   ) {
-    this.creationForm = this.fb.group({
-      'userId': '2',
-      'pokemon': {
-        'id': 4561,
-        'name': 'Novato',
-        'image':
-          'https://assets.pokemon.com/static2/_ui/img/og-default-image.jpeg',
-        'type': ['grass'],
-        'evolutionId': 1,
-        'lvl': 1,
-        'abilities': [
-          [
-            {
-              'name': 'Hojas',
-              'description': 'Muchas Hojas',
-            },
-          ],
-        ],
-      },
+    
+    this.creationForm = new FormGroup({
+      id: new FormControl(0),
+      name: new FormControl(''),
+      image:new FormControl(''),
+      type: new FormControl([]),
+      evolutionId: new FormControl(0),
+      lvl: new FormControl(0),
     });
+    this.abilitiesForm = new FormGroup(
+      {
+        name: new FormControl(''),
+        description: new FormControl('')
+      }
+    )
   }
 
   submit() {
     let pokemon = this.creationForm.value;
-    console.log(pokemon);
-    this.postPokemon.postPokemon(pokemon).subscribe((res) => {
-      console.log(res);
-    });
+    let abilities = this.abilitiesForm.value;
+    let merged = { ...pokemon, abilities: [abilities] }
+    this.store.dispatch(addPokemons({ pokemonItem: merged }));
   }
 
   ngOnInit(): void {}
