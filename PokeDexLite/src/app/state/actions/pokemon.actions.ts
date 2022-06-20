@@ -17,4 +17,3 @@ export const editPokemons = createAction(
   '[Pokemon List] Edit Success',
   props<{ pokemonItem: Pokemon }>()
 );
-
