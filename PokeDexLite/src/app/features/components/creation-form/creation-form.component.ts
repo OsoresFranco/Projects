@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { AlertsService } from 'src/app/core/services/alerts.service';
+import { PokemonService } from 'src/app/core/services/pokemon.service';
+import { addPokemons } from 'src/app/state/actions/pokemon.actions';
 
 @Component({
   selector: 'app-creation-form',
@@ -8,7 +11,8 @@ import { AlertsService } from 'src/app/core/services/alerts.service';
   styleUrls: ['./creation-form.component.scss'],
 })
 export class CreationFormComponent implements OnInit {
-  creationForm: FormGroup;
+  creationForm:any;
+  abilitiesForm:any
 
   types: string[] = [
     'normal',
@@ -33,29 +37,31 @@ export class CreationFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private alert: AlertsService
+    private alert: AlertsService,
+    private store: Store<any>
   ) {
-    this.creationForm = this.fb.group({
-      name: ['', [Validators.required]],
-      image: ['', [Validators.required]],
-      type: ['', [Validators.required]],
-      evolutionId: [0],
-      lvl: [1],
-      abilities: [{
-        name:"",
-        description:""
-      },
-      {
-        name:"",
-        description:""
-      }
-    ],
-      id: [Math.floor(Math.random() * 1000) + 1],
+    
+    this.creationForm = new FormGroup({
+      id: new FormControl(0),
+      name: new FormControl(''),
+      image:new FormControl(''),
+      type: new FormControl([]),
+      evolutionId: new FormControl(0),
+      lvl: new FormControl(0),
     });
+    this.abilitiesForm = new FormGroup(
+      {
+        name: new FormControl(''),
+        description: new FormControl('')
+      }
+    )
   }
 
   submit() {
-    console.log(this.creationForm.value)
+    let pokemon = this.creationForm.value;
+    let abilities = this.abilitiesForm.value;
+    let merged = { ...pokemon, abilities: [abilities] }
+    this.store.dispatch(addPokemons({ pokemonItem: merged }));
   }
 
   ngOnInit(): void {}

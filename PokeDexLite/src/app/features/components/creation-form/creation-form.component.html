@@ -1,53 +1,110 @@
-<div class="form-container">
-    <div class="form-title-container">
-      <h2>Register a Pokemon</h2>
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Pokemon Info </mat-panel-title>
+      <mat-panel-description> General Information </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="form-container">
+      <div class="form-title-container">
+        <h2>Register a Pokemon</h2>
+      </div>
+      <div class="editionForm" [formGroup]="creationForm" autocomplete="off">
+        <mat-form-field class="user-input" appearance="fill">
+          <mat-label>Pokemon Id</mat-label>
+          <input
+            class="inputField"
+            type="number"
+            matInput
+            formControlName="id"
+          />
+          <mat-error> Id is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="user-input" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input
+            class="inputField"
+            type="text"
+            matInput
+            formControlName="name"
+          />
+          <mat-error> Name is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="user-input" appearance="fill">
+          <mat-label>Image Url</mat-label>
+          <input
+            class="inputField"
+            type="text"
+            matInput
+            formControlName="image"
+          />
+          <mat-error> image is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="user-input" appearance="fill">
+          <mat-label>Level</mat-label>
+          <input
+            class="inputField"
+            type="number"
+            matInput
+            formControlName="lvl"
+          />
+          <mat-error> Level is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Type/s</mat-label>
+          <mat-select formControlName="type" multiple>
+            <mat-option *ngFor="let type of types" [value]="type">{{
+              type
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="user-input" appearance="fill">
+          <mat-label>Id of it's Evolution</mat-label>
+          <input
+            class="inputField"
+            type="number"
+            matInput
+            formControlName="evolutionId"
+          />
+        </mat-form-field>
+      </div>
     </div>
-    <form class="editionForm" [formGroup]="creationForm" autocomplete="off">
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Abilities Panel</mat-panel-title>
+      <mat-panel-description>Add Your Main Move</mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="editionForm form-container" [formGroup]="abilitiesForm">
+      <h3 class="abilities-form">Abilities</h3>
       <mat-form-field class="user-input" appearance="fill">
-        <mat-label>Pokemon Id</mat-label>
-        <input class="inputField" type="number" matInput formControlName="id" />
-        <mat-error> Id is <strong>required</strong> </mat-error>
+        <mat-label>Ability Name</mat-label>
+        <input class="inputField" type="text" matInput formControlName="name" />
       </mat-form-field>
 
       <mat-form-field class="user-input" appearance="fill">
-        <mat-label>Name</mat-label>
-        <input class="inputField" type="text" matInput formControlName="name" />
-        <mat-error> Name is <strong>required</strong> </mat-error>
-      </mat-form-field>
-  
-      <mat-form-field class="user-input" appearance="fill">
-        <mat-label>Image Url</mat-label>
-        <input class="inputField" type="text" matInput formControlName="image" />
-        <mat-error> image is <strong>required</strong> </mat-error>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill">
-        <mat-label>Type/s</mat-label>
-        <mat-select formControlName="type" multiple>
-          <mat-option *ngFor="let type of types" [value]="type">{{
-            type
-          }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <mat-form-field class="user-input" appearance="fill">
-        <mat-label>Id of it's Evolution</mat-label>
+        <mat-label>Ability Description</mat-label>
         <input
           class="inputField"
-          type="number"
+          type="text"
           matInput
-          formControlName="evolutionId"
+          formControlName="description"
         />
       </mat-form-field>
-      <button
-        class="form-button"
-        mat-raised-button
-        mat-dialog-close
-        [disabled]="!creationForm.valid"
-        (click)="submit()"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-  
+    </div>
+  </mat-expansion-panel>
+
+  <button
+    class="form-button"
+    mat-raised-button
+    mat-dialog-close
+    (click)="submit()"
+  >
+    Submit
+  </button>
+</mat-accordion>

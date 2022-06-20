@@ -16,4 +16,8 @@ export class PokemonService {
   putPokemon(pokemon:any):Observable<any>{
     return this.http.put("/pokedex-api/pokemon/", pokemon);
   }
+
+  postPokemon(pokemon:any):Observable<any>{
+    return this.http.post("/pokedex-api/pokemon/", pokemon);
+  }
 }
