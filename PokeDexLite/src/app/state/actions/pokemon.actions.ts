@@ -17,3 +17,7 @@ export const editPokemons = createAction(
   '[Pokemon List] Edit Success',
   props<{ pokemonItem: Pokemon }>()
 );
+
+export const evoPokemons = createAction(
+  '[Pokemon List] Evolution Data',
+);

@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Pokemon } from 'src/app/models/Pokemon';
+import { selectPokemonsList } from 'src/app/state/selectors/pokemon.selectors';
 
 @Component({
   selector: 'app-pokemon-modal',
@@ -9,11 +12,17 @@ import { Pokemon } from 'src/app/models/Pokemon';
 })
 export class PokemonModalComponent implements OnInit {
   normalizedUrl: string = '';
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Pokemon) {}
+  loaded$: Observable<any> = new Observable ();
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Pokemon, private store:Store<any>) {}
 
   handleMissingImage() {
     this.data.image = '../../../../assets/whosthat.png';
   }
+
+pruebita(){
+  console.log(this.loaded$.subscribe)
+}
 
   getEvolution(evolutionId: number) {
     let imageAdress =
@@ -33,5 +42,6 @@ export class PokemonModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEvolution(this.data.evolutionId);
+    this.loaded$ = this.store.select(selectPokemonsList)
   }
 }

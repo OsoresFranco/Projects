@@ -17,12 +17,21 @@
     </div>
   </div>
   <div class="modal-evolution-container">
-    <h3>Evolution</h3>
-    <img
-      class="modal-evolution-image"
-      src="{{ normalizedUrl }}"
-      alt="pokemon evolution"
-      (error)="handleMissingEvolution()"
-    />
+    <div *ngFor="let item of loaded$ | async">
+      <div
+        class="modal-evolution-container"
+        *ngIf="item.id === data.evolutionId"
+      >
+        <h3>Evolution</h3>
+        <p class="evo-level">Evolves at level: {{ item.lvl }}</p>
+        <img
+          class="modal-evolution-image"
+          src="{{item.image}}"
+          alt="pokemon evolution"
+          (error)="handleMissingEvolution()"
+        />
+        <p class="evo-name">{{ item.name }}</p>
+      </div>
+    </div>
   </div>
 </div>
