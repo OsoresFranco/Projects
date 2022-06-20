@@ -28,6 +28,7 @@ import { PokemonsEffects } from './state/effects/pokemon.effects';
 import { AddPokemonComponent } from './features/components/add-pokemon/add-pokemon.component';
 import { CreationFormComponent } from './features/components/creation-form/creation-form.component';
 import { HomeComponent } from './features/pages/private/home/home.component';
+import { NotFoundComponent } from './features/pages/public/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { HomeComponent } from './features/pages/private/home/home.component';
     PokemonEditFormComponent,
     AddPokemonComponent,
     CreationFormComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
