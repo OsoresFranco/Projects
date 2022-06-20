@@ -1,9 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { PokemonService } from 'src/app/core/services/pokemon.service';
 import { Pokemon } from 'src/app/models/Pokemon';
+import { editPokemons } from 'src/app/state/actions/pokemon.actions';
 
 @Component({
   selector: 'app-pokemon-edit-form',
@@ -37,7 +39,8 @@ export class PokemonEditFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Pokemon,
     private fb: FormBuilder,
     private pokemonservice: PokemonService,
-    private alert: AlertsService
+    private alert: AlertsService,
+    private store:Store<any>
   ) {
     this.editionForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
@@ -52,14 +55,8 @@ export class PokemonEditFormComponent implements OnInit {
 
   submit() {
     let pokemon = this.editionForm.value;
-    this.pokemonservice.putPokemon(pokemon).subscribe(
-      () => {
-        this.alert.editionSuccess(this.editionForm.get('name')?.value);
-      },
-      () => {
-        this.alert.editionFail(this.editionForm.get('name')?.value);
-      }
-    );
+    console.log(pokemon)
+    this.store.dispatch(editPokemons({pokemonItem:pokemon}))
   }
 
   ngOnInit(): void {}
