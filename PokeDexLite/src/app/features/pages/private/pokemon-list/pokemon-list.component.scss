@@ -1,8 +1,20 @@
-.paginator-container{
+.paginator-container {
   position: sticky;
   bottom: 0px;
 }
 
-.list-container{
+.list-container {
   height: 100%;
+}
+
+.bat-spinner {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+}
+
+.loading-text{
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
 }

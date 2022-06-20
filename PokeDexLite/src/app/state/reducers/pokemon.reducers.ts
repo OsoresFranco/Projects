@@ -11,7 +11,6 @@ export const pokemonsReducer = createReducer(
     return {...state, loading: true }
   }),
   on(loadedPokemons, (state, {pokemons}) => {
-    console.log(pokemons)
     return {...state, loading: false, pokemons }
   })
 );

@@ -23,6 +23,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { pokemonsReducer } from './state/reducers/pokemon.reducers';
 import { ROOT_REDUCERS } from './state/app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { PokemonsEffects } from './state/effects/pokemon.effects';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { ROOT_REDUCERS } from './state/app.state';
     HttpClientModule,
     SweetAlert2Module,
     StoreModule.forRoot(ROOT_REDUCERS),
-    StoreDevtoolsModule.instrument({ name: 'TEST'})
+    StoreDevtoolsModule.instrument({ name: 'TEST'}),
+    EffectsModule.forRoot([PokemonsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
