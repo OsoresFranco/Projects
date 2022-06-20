@@ -25,6 +25,8 @@ import { pokemonsReducer } from './state/reducers/pokemon.reducers';
 import { ROOT_REDUCERS } from './state/app.state';
 import { EffectsModule } from '@ngrx/effects';
 import { PokemonsEffects } from './state/effects/pokemon.effects';
+import { AddPokemonComponent } from './features/components/add-pokemon/add-pokemon.component';
+import { CreationFormComponent } from './features/components/creation-form/creation-form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { PokemonsEffects } from './state/effects/pokemon.effects';
     PokemonListComponent,
     PaginatePipe,
     PokemonModalComponent,
-    PokemonEditFormComponent
+    PokemonEditFormComponent,
+    AddPokemonComponent,
+    CreationFormComponent
   ],
   imports: [
     BrowserModule,
