@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertsService } from 'src/app/core/services/alerts.service';
+import { PokemonService } from 'src/app/core/services/pokemon.service';
 
 @Component({
   selector: 'app-creation-form',
@@ -33,29 +34,37 @@ export class CreationFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private alert: AlertsService
+    private alert: AlertsService,
+    private postPokemon: PokemonService
   ) {
     this.creationForm = this.fb.group({
-      name: ['', [Validators.required]],
-      image: ['', [Validators.required]],
-      type: ['', [Validators.required]],
-      evolutionId: [0],
-      lvl: [1],
-      abilities: [{
-        name:"",
-        description:""
+      'userId': '2',
+      'pokemon': {
+        'id': 4561,
+        'name': 'Novato',
+        'image':
+          'https://assets.pokemon.com/static2/_ui/img/og-default-image.jpeg',
+        'type': ['grass'],
+        'evolutionId': 1,
+        'lvl': 1,
+        'abilities': [
+          [
+            {
+              'name': 'Hojas',
+              'description': 'Muchas Hojas',
+            },
+          ],
+        ],
       },
-      {
-        name:"",
-        description:""
-      }
-    ],
-      id: [Math.floor(Math.random() * 1000) + 1],
     });
   }
 
   submit() {
-    console.log(this.creationForm.value)
+    let pokemon = this.creationForm.value;
+    console.log(pokemon);
+    this.postPokemon.postPokemon(pokemon).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   ngOnInit(): void {}
