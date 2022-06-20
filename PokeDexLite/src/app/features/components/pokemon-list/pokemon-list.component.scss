@@ -1,3 +1,12 @@
+@media only screen and (min-width: 768px) {
+  .list-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .paginator-container {
   position: sticky;
   bottom: 0px;

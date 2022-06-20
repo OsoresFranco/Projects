@@ -1,7 +1,7 @@
 .card-container {
   display: flex;
   flex-wrap: nowrap;
-
+  max-width: 350px;
   margin: 25px;
 }
 
@@ -63,17 +63,17 @@
   font-weight: 500;
 }
 
-.card-actions-container{
+.card-actions-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.card-action-icon{
+.card-action-icon {
   color: #ffffff;
 }
 
-.card-action-button{
-  background-color: #262D4d;
+.card-action-button {
+  background-color: #262d4d;
   margin-bottom: 5px;
 }

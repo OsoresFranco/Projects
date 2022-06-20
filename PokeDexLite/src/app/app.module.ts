@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginFormComponent } from './features/components/login-form/login-form.component';
 import { CardComponent } from './features/components/card/card.component';
 import { TypePipe } from './pipes/type.pipe';
-import { PokemonListComponent } from './features/pages/private/pokemon-list/pokemon-list.component';
+import { PokemonListComponent } from './features/components/pokemon-list/pokemon-list.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { PokemonModalComponent } from './features/components/pokemon-modal/pokemon-modal.component';
 import { PokemonEditFormComponent } from './features/components/pokemon-edit-form/pokemon-edit-form.component';
@@ -27,6 +27,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PokemonsEffects } from './state/effects/pokemon.effects';
 import { AddPokemonComponent } from './features/components/add-pokemon/add-pokemon.component';
 import { CreationFormComponent } from './features/components/creation-form/creation-form.component';
+import { HomeComponent } from './features/pages/private/home/home.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CreationFormComponent } from './features/components/creation-form/creat
     PokemonModalComponent,
     PokemonEditFormComponent,
     AddPokemonComponent,
-    CreationFormComponent
+    CreationFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
